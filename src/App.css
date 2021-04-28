@@ -1,8 +1,7 @@
 .App {
   display: grid;
+  height: 100vh;
+  grid-template-rows: 50px 1fr 50px;
+  background: lightcoral;
 }
 
-/* TODO: remove **/
-.temp-images {
-  height: 200px;
-}
