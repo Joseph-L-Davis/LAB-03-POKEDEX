@@ -1,20 +1,22 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './PokeItem.css';
 
 export default class PokeItem extends Component {
   
   render() {
+    const { poke } = this.props;
+
     return (
       <li className="PokeItem">
-        <h2>Bulbasaur</h2>
+        <h2>{poke.pokemon}</h2>
 
-        <p className='shape'>Quadruped</p>
+        <p className='shape'>{poke.shape}</p>
 
-        <p className='type'>Grass</p>
+        <p className='type'>{poke.type_1}</p>
 
         <img
-          src='http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'
-          alt='Bulbasaur'
+          src={poke.url_image}
+          alt='{poke.pokemon}'
         />
         
       </li>

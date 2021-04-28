@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './PokeSearch.css';
 
 export default class PokeSearch extends Component {
