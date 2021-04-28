@@ -6,9 +6,11 @@ export default class PokeList extends Component {
   
   render() {
     return (
-      <div className="PokeList">
+      <ul className="PokeList">
         <PokeItem/>
-      </div>
+        <PokeItem/>
+        <PokeItem/>
+      </ul>
     );
   }
 

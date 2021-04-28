@@ -1,14 +1,17 @@
 .Header {
-  display: grid;
-  height: 80px;
-  grid-template-columns: 50px 1fr 50px;
-  background: lightblue;
-  margin: 10px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    padding-left: 10px;
+    grid-gap: 10px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    background: lightblue;
 }
 
-h1 {
-    display: flex;
+.Header h1 {
     grid-column-start: 2;
+    display: grid;
     justify-content: center;
-    align-items: center;
+    font-size: 4rem;
+    margin: 0;
 }

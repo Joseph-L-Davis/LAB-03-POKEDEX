@@ -1,7 +1,8 @@
 .App {
   display: grid;
   height: 100vh;
-  grid-template-rows: 50px 1fr 50px;
+  grid-auto-rows: 150px 1fr 20px;
   background: lightcoral;
+  overflow: auto;
 }
 

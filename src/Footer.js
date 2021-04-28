@@ -5,9 +5,9 @@ export default class Footer extends Component {
   
   render() {
     return (
-      <div className="Footer">
+      <footer className="Footer">
         placeholder
-      </div>
+      </footer>
     );
   }
 

@@ -1,7 +1,4 @@
 .Footer {
-  background: lightblue;
-  height: 80px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+    background: lightblue;
+    font-weight: bolder;
 }
