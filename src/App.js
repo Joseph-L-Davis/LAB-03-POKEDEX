@@ -5,7 +5,7 @@ import request from 'superagent';
 import Header from './Header';
 import PokeList from './PokeList';
 import Footer from './Footer';
-import PokeSearch from './poke-stuff/PokeSearch';
+import PokeSearch from './PokeSearch';
 
 const POKEDEX_API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
 
           <PokeSearch/>
           <PokeList/>
-          
+
         </main>
         <Footer/>
 
