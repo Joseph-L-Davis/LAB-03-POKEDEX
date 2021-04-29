@@ -22,9 +22,9 @@ class App extends Component {
 
   handleSearch = ({ searchField, sortField }) => {
     const nameRegex = new RegExp(searchField, 'i');
-    const { pokemon, setPokemon } = this.state;
+    const { setPokemon } = this.state;
 
-    const searchedPoke = this.state.setPokemon
+    const searchedPoke = setPokemon
       .filter(poke => {
         return !searchField || poke.pokemon.match(nameRegex);
       })
