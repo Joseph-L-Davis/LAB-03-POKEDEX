@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   render() {
+    const { pokemon } = this.state;
     return (
       <div className="App">
       
@@ -28,7 +29,7 @@ class App extends Component {
         <main>
 
           <PokeSearch/>
-          <PokeList/>
+          <PokeList pokemon={pokemon}/>
 
         </main>
         <Footer/>
