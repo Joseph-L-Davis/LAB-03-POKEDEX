@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import './PokeSearch.css';
 
 export default class PokeSearch extends Component {
-  state = { searchField: '' }
+  state = { searchField: '', sortField: '' }
   
   handleSearchField = ({ target }) => {
     this.setState({ searchField: target.value });
+    console.log(target.value);
   }
+
+  handleSortField = ({ target }) =>
+    this.setState({ sortField: target.value })
 
   componentDidMount() {
     const { searchField } = this.props;
@@ -27,7 +31,8 @@ export default class PokeSearch extends Component {
 
         <input className='searchField'
           value={searchField}
-          onChange={ this.handleSearchField }></input>
+          onChange={ this.handleSearchField }   
+        />
 
         <select name='sortField'
           value={sortField}
