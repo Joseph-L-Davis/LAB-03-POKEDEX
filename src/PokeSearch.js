@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import './PokeSearch.css';
 
 export default class PokeSearch extends Component {
+  state = { searchField: '', sortField: '' }
   
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSearch(this.state);
+  }
+
   render() {
     return (
-      <form className="PokeSearch">
+      <form className="PokeSearch" onSubmit={this.handleSubmit}>
 
         <input className='searchField'></input>
 
