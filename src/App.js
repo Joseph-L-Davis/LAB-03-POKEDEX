@@ -16,22 +16,38 @@ class App extends Component {
     page: 1
   }
 
-  async componentDidMount() {
-    this.handleSearch();
+  componentDidMount() {
+    this.fetchPokemon();
+    console.log('mount');
   }
 
-  handleSearch = async (search) => {
-    const response = await request(POKEDEX_API_URL)
+  async fetchPokemon(search) {
+    const response = await request
+      .get(POKEDEX_API_URL)
       .query({ pokemon: search });
+
     this.setState({ pokemon: response.body.results });
+    console.log('fetch');
   }
+
+  handleSearch = ({ search }) => {
+    this.fetchPokemon(search);
+    console.log('handle');
+  }
+    
+    
+  
 
   handlePrevPage = () => {
-    console.log('previous page');
+    this.setState(state => {
+      return { page: Math.max(state.page - 1, 1) };
+    });
   }
 
   handleNextPage = () => {
-    console.log('next page');
+    this.setState(state => {
+      return { page: state.page + 1 };
+    });
   }
 
   render() {

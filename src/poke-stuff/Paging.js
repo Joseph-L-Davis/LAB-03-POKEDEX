@@ -9,7 +9,7 @@ export default class Paging extends Component {
     return (
       <form className="Paging">
         
-        <button className='previous' onClick={onPrev}>Prev</button>
+        <button className='previous' onClick={onPrev} disabled={page < 2}>Prev</button>
         <span>Page {page}</span>
         <button className='next' onClick={onNext}>Next</button>
 
