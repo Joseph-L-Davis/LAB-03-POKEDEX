@@ -21,32 +21,38 @@ class App extends Component {
     console.log('mount');
   }
 
-  async fetchPokemon(search) {
+  async fetchPokemon() {
+    const { search, page, sortField } = this.state;
     const response = await request
       .get(POKEDEX_API_URL)
-      .query({ pokemon: search });
+      .query({ pokemon: search })
+      .query({ sort: sortField })
+      .query({ page: page });
 
     this.setState({ pokemon: response.body.results });
-    console.log('fetch');
   }
 
-  handleSearch = ({ search }) => {
-    this.fetchPokemon(search);
-    console.log('handle');
+  handleSearch = ({ searchField, sortField }) => {
+    this.setState(
+      { search: searchField, page: 1, sortField: sortField },
+      () => this.fetchPokemon()
+    );
+    // console.log(search);
   }
     
-    
-  
-
   handlePrevPage = () => {
     this.setState(state => {
-      return { page: Math.max(state.page - 1, 1) };
+      // eslint-disable-next-line no-sequences
+      return { page: Math.max(state.page - 1, 1) },
+      () => this.fetchPokemon();
     });
   }
 
   handleNextPage = () => {
     this.setState(state => {
-      return { page: state.page + 1 };
+      // eslint-disable-next-line no-sequences
+      return { page: state.page + 1 },
+      () => this.fetchPokemon();
     });
   }
 

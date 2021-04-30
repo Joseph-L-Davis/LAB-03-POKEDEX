@@ -9,9 +9,11 @@ export default class PokeSearch extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const onSearch = this.props.onSearch;
-    const searchField = this.state.searchField;
-    onSearch(searchField);
+    this.props.onSearch(this.state);
+    // this.handleSearchField();
+    // const onSearch = this.props.onSearch;
+    // const searchField = this.state.searchField;
+    // onSearch(searchField);
   }
 
     handleSearchField = ({ target }) => {
@@ -34,8 +36,8 @@ export default class PokeSearch extends Component {
             value={sortField}
             onChange={ this.handleSortField }>
             <option value=''>Sort By...</option>
-            <option value='Name'>Name</option>
-            <option value='HP'>HP</option>
+            <option value='pokemon'>Name</option>
+            <option value='hp'>HP</option>
           </select>
 
           <button>Search</button>
