@@ -3,49 +3,45 @@ import './PokeSearch.css';
 
 export default class PokeSearch extends Component {
   state = { searchField: '', sortField: '' }
-  
-  handleSearchField = ({ target }) => {
-    this.setState({ searchField: target.value });
-    console.log(target.value);
-  }
 
   handleSortField = ({ target }) =>
     this.setState({ sortField: target.value })
 
-  componentDidMount() {
-    const { searchField } = this.props;
-    this.setState({ searchField: searchField });
-  }
-
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.state);
+    const onSearch = this.props.onSearch;
+    const searchField = this.state.searchField;
+    onSearch(searchField);
   }
 
+    handleSearchField = ({ target }) => {
+      this.setState({ searchField: target.value });
+    }
 
-  render() {
-    const { searchField, sortField } = this.state;
 
-    return (
-      <form className="PokeSearch" onSubmit={this.handleSubmit}>
+    render() {
+      const { searchField, sortField } = this.state;
 
-        <input className='searchField'
-          value={searchField}
-          onChange={ this.handleSearchField }   
-        />
+      return (
+        <form className="PokeSearch" onSubmit={this.handleSubmit}>
 
-        <select name='sortField'
-          value={sortField}
-          onChange={ this.handleSortField }>
-          <option value=''>Sort By...</option>
-          <option value='Name'>Name</option>
-          <option value='HP'>HP</option>
-        </select>
+          <input className='searchField'
+            value={searchField}
+            onChange={ this.handleSearchField }   
+          />
 
-        <button>Search</button>
+          <select name='sortField'
+            value={sortField}
+            onChange={ this.handleSortField }>
+            <option value=''>Sort By...</option>
+            <option value='Name'>Name</option>
+            <option value='HP'>HP</option>
+          </select>
+
+          <button>Search</button>
         
-      </form>
-    );
-  }
+        </form>
+      );
+    }
 
 }
