@@ -68,7 +68,8 @@ class App extends Component {
           <PokeSearch onSearch={this.handleSearch}/>
           <Paging
             page={page}
-            onPaging={this.handlePrevPage, this.handleNextPage}
+            onPrev={this.handlePrevPage}
+            onNext={this.handleNextPage}
           />
           <PokeList pokemon={pokemon}/>
         </section>
