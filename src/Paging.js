@@ -2,6 +2,13 @@ import { Component } from 'react';
 import './Paging.css';
 
 export default class Paging extends Component {
+  state = { prevPage: 1, nextPage: 1 }
+
+  handlePrevPage = ({ target }) =>
+    this.setState({ prevPage: target.value })
+
+  handleNextPage = ({ target }) =>
+    this.setState({ NextPage: target.value })
   
   render() {
 

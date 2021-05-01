@@ -6,7 +6,7 @@ import Header from './Header';
 import PokeList from './PokeList';
 import Footer from './Footer';
 import PokeSearch from './PokeSearch';
-import Paging from './poke-stuff/Paging';
+import Paging from './Paging';
 
 const POKEDEX_API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 class App extends Component {
@@ -40,18 +40,18 @@ class App extends Component {
     // console.log(search);
   }
     
-  handlePrevPage = () => {
+  handlePrevPage = ({ prevPage }) => {
     this.setState(state => {
       // eslint-disable-next-line no-sequences
-      return { page: Math.max(state.page - 1, 1) },
+      return { page: prevPage(Math.max(state.page - 1, 1)) },
       () => this.fetchPokemon();
     });
   }
 
-  handleNextPage = () => {
+  handleNextPage = ({ nextPage }) => {
     this.setState(state => {
       // eslint-disable-next-line no-sequences
-      return { page: state.page + 1 },
+      return { page: nextPage },
       () => this.fetchPokemon();
     });
   }
