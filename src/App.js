@@ -34,26 +34,26 @@ class App extends Component {
 
   handleSearch = ({ searchField, sortField }) => {
     this.setState(
-      { search: searchField, page: 1, sortField: sortField },
+      { search: searchField, sortField: sortField },
       () => this.fetchPokemon()
     );
     // console.log(search);
   }
     
-  handlePrevPage = ({ prevPage }) => {
-    this.setState(state => {
-      // eslint-disable-next-line no-sequences
-      return { page: prevPage(Math.max(state.page - 1, 1)) },
-      () => this.fetchPokemon();
-    });
+  handlePrevPage = () => {
+    this.setState(
+      { page: this.state.page - 1 },
+      () => this.fetchPokemon()
+    );
+    console.log('prev');
   }
 
-  handleNextPage = ({ nextPage }) => {
-    this.setState(state => {
-      // eslint-disable-next-line no-sequences
-      return { page: nextPage },
-      () => this.fetchPokemon();
-    });
+  handleNextPage = () => {
+    this.setState(
+      { page: this.state.page + 1 },
+      () => this.fetchPokemon()
+    );
+    console.log('next');
   }
 
   render() {
@@ -68,8 +68,7 @@ class App extends Component {
           <PokeSearch onSearch={this.handleSearch}/>
           <Paging
             page={page}
-            onPrev={this.handlePrevPage}
-            onNext={this.handleNextPage}
+            onPaging={this.handlePrevPage, this.handleNextPage}
           />
           <PokeList pokemon={pokemon}/>
         </section>

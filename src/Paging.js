@@ -2,25 +2,22 @@ import { Component } from 'react';
 import './Paging.css';
 
 export default class Paging extends Component {
-  state = { prevPage: 1, nextPage: 1 }
 
-  handlePrevPage = ({ target }) =>
-    this.setState({ prevPage: target.value })
+  handlePrevPage = () => this.props.onPaging(-1)
 
-  handleNextPage = ({ target }) =>
-    this.setState({ NextPage: target.value })
+  handleNextPage = () => this.props.onPaging(1)
   
   render() {
 
-    const { page, onPrev, onNext } = this.props;
+    const { page } = this.props;
     return (
-      <form className="Paging">
+      <div className="Paging" onSubmit={this.handleSubmit}>
         
-        <button className='previous' onClick={onPrev} disabled={page < 2}>Prev</button>
+        <button className='previous' onClick={this.handlePrevPage} disabled={page < 2}>Prev</button>
         <span>Page {page}</span>
-        <button className='next' onClick={onNext}>Next</button>
+        <button className='next' onClick={this.handleNextPage}>Next</button>
 
-      </form>
+      </div>
     );
   }
 
