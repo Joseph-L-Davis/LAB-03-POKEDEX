@@ -1,0 +1,27 @@
+li {
+  display: grid;
+    grid-template-rows: 50px 1fr;
+    border: 1px solid red;
+    width: fit-content;
+    padding: 10px;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    background: wheat;
+    max-width: 200px;
+}
+
+li h2 {
+    padding:2px ;
+}
+
+li p {
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+img {
+    object-fit: contain;
+    width: 200px;
+    height: 150px;
+}

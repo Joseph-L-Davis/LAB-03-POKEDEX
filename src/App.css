@@ -1,8 +1,8 @@
 .App {
   display: grid;
+  height: 100vh;
+  grid-auto-rows: 150px 1fr 150px;
+  background: lightcoral;
+  overflow: auto;
 }
 
-/* TODO: remove **/
-.temp-images {
-  height: 200px;
-}
